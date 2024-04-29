@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Recipes app</string>
+    <string name="urlserver">http://192.168.1.16:4000</string>
+
+    <string-array name="tags">
+        <item>random</item>
+        <item>lunch</item>
+        <item>new year\'s eve</item>
+        <item>engagement party</item>
+        <item>wedding</item>
+        <item>buffet</item>
+        <item>anniversary</item>
+        <item>lunar new year</item>
+        <item>drink</item>
+        <item>mother\'s day</item>
+        <item>easter</item>
+        <item>party</item>
+        <item>thanksgiving</item>
+        <item>alcoholic</item>
+        <item>valentine\'s day</item>
+        <item>dinner</item>
+        <item>new year\'s day</item>
+        <item>picnic</item>
+        <item>breakfast</item>
+    </string-array>
+</resources>
