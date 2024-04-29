@@ -43,7 +43,7 @@
         android:layout_margin="8dp"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize">
-        <android.widget.SearchView
+        <androidx.appcompat.widget.SearchView
             android:id="@+id/searchView_home"
             app:queryHint="Search your recipe..."
             app:iconifiedByDefault="false"

@@ -1,7 +1,6 @@
 package com.example.myapp.Adapters;
 
 import android.content.Context;
-import android.graphics.drawable.Icon;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +11,8 @@ import androidx. annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myapp.Model.recipes;
+import com.example.myapp.Listeners.RecipeClickListener;
+import com.example.myapp.Model.Recipes;
 import com.example.myapp.R;
 import com.squareup.picasso.Picasso;
 
@@ -20,11 +20,12 @@ import java.util.List;
 
 public class RandomRecipeAdapter extends RecyclerView.Adapter<RandomRecipeViewHolder>{
     Context context;
-    List<recipes> list;
-
-    public RandomRecipeAdapter(Context context, List<recipes> list) {
+    List<Recipes> list;
+    RecipeClickListener listener;
+    public RandomRecipeAdapter(Context context, List<Recipes> list , RecipeClickListener listener) {
         this.context = context;
         this.list = list;
+        this.listener = listener;
     }
 
     @NonNull
@@ -44,8 +45,15 @@ public class RandomRecipeAdapter extends RecyclerView.Adapter<RandomRecipeViewHo
     @Override
     public void onBindViewHolder(@NonNull RandomRecipeViewHolder holder, int position) {
         holder.textView_title.setText(list.get(position).title);
-        holder.textView_rating.setText(String.valueOf(list.get(position).rating)); // Convert int to String
+        holder.textView_rating.setText(String.valueOf(list.get(position).rating));
         Picasso.get().load(list.get(position).image).into(holder.imageView_food);
+
+        holder.random_list_container.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onRecipeClicked(String.valueOf(list.get(holder.getAdapterPosition()).ID));
+            }
+        });
     }
 
 
@@ -55,12 +63,12 @@ public class RandomRecipeAdapter extends RecyclerView.Adapter<RandomRecipeViewHo
     }
 }
 class RandomRecipeViewHolder extends RecyclerView.ViewHolder {
-    CardView randon_list_container;
+    CardView random_list_container;
     TextView textView_title, textView_rating;
     ImageView imageView_food;
     public RandomRecipeViewHolder (@NonNull View itemView) {
         super(itemView);
-        randon_list_container = itemView.findViewById(R.id.random_list_container);
+        random_list_container = itemView.findViewById(R.id.random_list_container);
         textView_title = itemView.findViewById(R.id.textView_title);
         textView_rating = itemView.findViewById(R.id.textView_rating);
         imageView_food = itemView.findViewById(R.id.imageView_food);

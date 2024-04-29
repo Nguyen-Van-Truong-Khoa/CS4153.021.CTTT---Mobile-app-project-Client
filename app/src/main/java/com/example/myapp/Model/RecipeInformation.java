@@ -1,11 +1,13 @@
 package com.example.myapp.Model;
 
-public class recipeinfor {
-    public int id;
+import java.util.ArrayList;
+
+public class RecipeInformation {
+    public int ID;
     public String title;
     public float rating;
     public String image;
-    public String ingredients;
+    public ArrayList<String> ingredients;
     public String methods;
     public String types;
 

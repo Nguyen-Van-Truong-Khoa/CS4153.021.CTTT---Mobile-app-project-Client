@@ -1,7 +1,7 @@
 package com.example.myapp.Model;
-import java.util.ArrayList;
-public class recipes {
-    public int id;
+
+public class Recipes {
+    public int ID;
     public String title;
     public double rating;
     public String image;
