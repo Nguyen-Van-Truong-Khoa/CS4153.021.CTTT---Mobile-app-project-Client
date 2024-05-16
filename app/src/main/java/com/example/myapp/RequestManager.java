@@ -29,8 +29,8 @@ import retrofit2.http.Query;
 
 public class RequestManager {
     Context context;
-    String url_server = "http://192.168.1.16:4000";// find local ip address
-    //String url_server = "https://cs4153-021-cttt-mobile-app-project-server.onrender.com"; //link url online server
+    //String url_server = "http://26.68.212.226:4000";// find local ip address
+    String url_server = "https://cs4153-021-cttt-mobile-app-project-server.onrender.com"; //link url online server
     Retrofit retrofit = new Retrofit.Builder()
             .baseUrl(url_server)
             .addConverterFactory (GsonConverterFactory.create())
